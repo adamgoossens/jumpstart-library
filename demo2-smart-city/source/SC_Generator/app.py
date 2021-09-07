@@ -67,7 +67,8 @@ def send_image(image_key):
     else:
         result = {
             "license_plate_number_detection_status": "Failed",
-            "reason": "Not able to read license plate, the input image could be blur or complex for inferencing"
+            "reason": "Not able to read license plate, the input image could be blur or complex for inferencing",
+            "failedkey": image_key
         }
     return json.dumps(result)
 
