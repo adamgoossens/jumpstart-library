@@ -126,6 +126,7 @@ def  lpr_process(input_image_path):
             license_plate_string+=title.strip("'[]")
 
     else:
+        print("NO PLATE FOUND")
         license_plate_string =  ""
 
     result = ''
