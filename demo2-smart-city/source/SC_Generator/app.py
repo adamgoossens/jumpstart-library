@@ -50,6 +50,7 @@ def send_image(image_key):
     if len(license_plate_string) >= 3 :
         rand = random.choices(population=[0,1,2,3,4,5,6,7,8],weights=[0.4, 0.4, 0.4, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],k=1)[0]
         result = {
+            "imgkey": image_key,
             "event_timestamp":datetime.datetime.now().isoformat(),
             "event_id": uuid.uuid4().hex,
             "event_vehicle_detected_plate_number": license_plate_string,
