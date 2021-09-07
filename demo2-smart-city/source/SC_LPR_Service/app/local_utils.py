@@ -207,6 +207,6 @@ def detect_lp(model, I, max_dim, lp_threshold):
     T = T.reshape((1, T.shape[0], T.shape[1], T.shape[2]))
     Yr = model.predict(T)
     Yr = np.squeeze(Yr)
-    #print(Yr.shape)
+    print(Yr.shape)
     L, TLp, lp_type, Cor = reconstruct(I, Iresized, Yr, lp_threshold)
     return L, TLp, lp_type, Cor

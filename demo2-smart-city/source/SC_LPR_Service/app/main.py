@@ -45,7 +45,7 @@ def get_plate(image_path, Dmax=608, Dmin = 608):
     ratio = float(max(vehicle.shape[:2])) / min(vehicle.shape[:2])
     side = int(ratio * Dmin)
     bound_dim = min(side, Dmax)
-    print("image path: " + image_path)
+    print("bound_dim={}, ratio={}".format(bound_dim,ratio))
     _ , LpImg, _, cor = detect_lp(wpod_net, vehicle, bound_dim, lp_threshold=0.5)
     return vehicle, LpImg, cor
 
@@ -88,6 +88,7 @@ def  lpr_process(input_image_path):
     license_plate_string =  ""
     vehicle, LpImg, cor = get_plate(input_image_path)
     if  len(LpImg) > 0:
+        print("Found a plate!")
         plate_image = cv2.convertScaleAbs(LpImg[0], alpha=(255.0))
         gray = cv2.cvtColor(plate_image, cv2.COLOR_BGR2GRAY)
         blur = cv2.GaussianBlur(gray,(7,7),0)
